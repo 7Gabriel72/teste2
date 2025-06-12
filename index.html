@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #7b2ff7, #f107a3);
+      color: white;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    #carta-inicial {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff0f5;
+      color: #7b2ff7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      transition: opacity 2s ease-in-out;
+    }
+
+    #carta-inicial h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #carta-inicial p {
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+
+    #abrirCartaBtn {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      background-color: #7b2ff7;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #abrirCartaBtn:hover {
+      background-color: #a04dfd;
+    }
+
+    #conteudoPrincipal {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 0.5em 0;
+      max-width: 600px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    button {
+      margin-top: 2em;
+      padding: 1em 2em;
+      font-size: 1rem;
+      background-color: white;
+      color: #7b2ff7;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background-color: #7b2ff7;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    #galeria {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .foto {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid white;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #poema {
+      margin-top: 30px;
+      font-style: italic;
+      max-width: 600px;
+      animation: fadeIn 4s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div id="carta-inicial">
+    <h2>Uma carta para você, Isabella 💌</h2>
+    <p>Abra com o coração. Esta carta guarda mais do que palavras: ela carrega meu amor inteiro.</p>
+    <button id="abrirCartaBtn" onclick="abrirCarta()">Clique para abrir</button>
+  </div>
+
+  <div id="conteudoPrincipal">
+    <h1>Feliz Dia dos Namorados ❤️</h1>
+    <p>Hoje celebro você, amor, e cada instante mágico que vivemos juntos. Que este dia seja apenas mais um capítulo encantado da nossa linda história.</p>
+    <button onclick="mostrarMensagem()">Clique para uma surpresa</button>
+
+<div id="galeria">
+  <div class="foto"><img src="teste4.jpg"></div>
+  <div class="foto"><img src="teste5.jpg"></div>
+  <div class="foto"><img src="teste6.jpg"></div>
+  <div class="foto"><img src="teste3.jpg"></div>
+</div>
+
+    <div id="poema">
+      <p>
+        Querida Isabella,<br><br>
+
+        Hoje, abro esta carta como quem abre o coração em flor, <br>
+        com dedos trêmulos de amor e olhos cheios de sol. <br>
+        Desde que você chegou, cada amanhecer se tornou poesia, <br>
+        e cada silêncio entre nós, um verso por nascer.<br><br>
+
+        Quando teus olhos tocam os meus, o mundo silencia, <br>
+        e até o tempo, tímido, esquece de passar. <br>
+        Cada gesto teu é verso, cada sorriso, melodia, <br>
+        e teu abraço é o lar onde a alma quer morar. <br><br>
+
+        Se as estrelas soubessem do brilho que há em ti, <br>
+        talvez descessem à Terra por inveja do teu olhar. <br>
+        Mas nenhuma supera o dom que tens de me fazer feliz, <br>
+        com tua presença, meu amor, meu doce luar.<br><br>
+
+        Com todo meu amor,<br>
+        Gabriel 💌<br><br>
+
+        P.S.: Clique no botão abaixo e descubra algo feito só pra você! 💖
+      </p>
+    </div>
+  </div>
+
+  <audio id="musica" autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML.
+  </audio>
+
+  <script>
+    function mostrarMensagem() {
+      alert("Você é o meu para sempre. Eu te amo, Isabella! 💖");
+    }
+
+    function criarCoracao() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+
+    function abrirCarta() {
+      const carta = document.getElementById('carta-inicial');
+      const conteudo = document.getElementById('conteudoPrincipal');
+      carta.style.opacity = '0';
+      setTimeout(() => {
+        carta.style.display = 'none';
+        conteudo.style.display = 'flex';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
